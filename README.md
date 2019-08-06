@@ -116,3 +116,14 @@ sudo apt-get install pkg-config
 make
 sudo make install
 ```
+
+## Deleting Old Local Branches
+```bash
+git remote prune origin 
+git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d
+```
+
+## Text Interface for Git
+```bash
+sudo apt install tig # then use <command> | tig
+```
