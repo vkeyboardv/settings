@@ -127,3 +127,11 @@ git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -
 ```bash
 sudo apt install tig # then use <command> | tig
 ```
+
+## Docker commands without sudo
+```bash
+cat /etc/group | grep docker # to check users in docker group
+sudo gpasswd -a $USER docker
+sudo usermod -a -G docker $USER # https://techoverflow.net/2017/03/01/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/
+sudo service docker restart
+```
