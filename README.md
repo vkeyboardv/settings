@@ -135,3 +135,23 @@ sudo gpasswd -a $USER docker
 sudo usermod -a -G docker $USER # https://techoverflow.net/2017/03/01/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/
 sudo service docker restart
 ```
+
+## Import sql file into db schema
+```bash
+sudo apt install mysql-client-core-8.0 # mysql client is required
+
+mysql -u root -ptestdbpass -h 127.0.0.1 audit  --ssl-mode=DISABLED < /home/adminpc/Downloads/audit-schema.sql
+```
+
+## Zsh and Oh-My-Zsh with autocomplete
+```bash
+sudo apt install zsh
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+nano ~/.zshrc # append plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+```
